@@ -1,0 +1,2 @@
+module SavedHairstylesHelper
+end
