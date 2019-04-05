@@ -1,1 +1,9 @@
-index.html.erb
+<h2>See all hairstyles</h2>
+<ol>
+<% @hairstyles.each do |hairstyle| %>
+  <li><%= hairstyle.name %></li>
+  <li><%= hairstyle.description %></li>
+  <li><%= hairstyle.picture_url %></li>
+  <li><%= hairstyle.category %></li>
+  <% end %>
+</ol>

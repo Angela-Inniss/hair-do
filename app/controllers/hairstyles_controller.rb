@@ -1,5 +1,6 @@
 class HairstylesController < ApplicationController
   def index
+    @hairstyles = Hairstyle.all
   end
 
   def show
@@ -17,8 +18,6 @@ class HairstylesController < ApplicationController
   def update
   end
 
-
   def destroy
   end
 end
-
