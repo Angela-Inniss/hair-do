@@ -1,5 +1,4 @@
 class HairstylesController < ApplicationController
-
   def index
   end
 
@@ -16,8 +15,10 @@ class HairstylesController < ApplicationController
   end
 
   def update
+  end
 
 
   def destroy
   end
 end
+
