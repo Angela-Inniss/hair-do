@@ -10,10 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_05_132247) do
+ActiveRecord::Schema.define(version: 2019_04_05_134903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "hairstyle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hairstyle_id"], name: "index_comments_on_hairstyle_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "hairstyles", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "category"
+    t.string "photo_url"
+    t.string "video_url"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_hairstyles_on_user_id"
+  end
+
+  create_table "saved_hairstyles", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "hairstyle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hairstyle_id"], name: "index_saved_hairstyles_on_hairstyle_id"
+    t.index ["user_id"], name: "index_saved_hairstyles_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,4 +59,10 @@ ActiveRecord::Schema.define(version: 2019_04_05_132247) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "comments", "hairstyles"
+  add_foreign_key "comments", "users"
+  add_foreign_key "hairstyles", "users"
+  add_foreign_key "saved_hairstyles", "hairstyles"
+  add_foreign_key "saved_hairstyles", "users"
 end
