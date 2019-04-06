@@ -5,13 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts 'Creating 10 fake hairstyles...'
-10.times do
-  hairstyle = Hairstyle.new(
-    name: Faker::Name.unique.first_name,
-    description: Faker::Lorem.sentence,
-  )
-  hairstyle.save!
-end
 
-puts 'finished!'
+
+hairstyles = ["Braids", "Relaxed", "Weave", "Wedding", "Party","Short Hair"]
+
+puts 'hairstyles...'
+  20.times do
+    hairstlye = Hairstyle.new(
+      name: hairstyle.sample
+    )
+    hairstyle.save!
+  end
+  puts 'finished!'
