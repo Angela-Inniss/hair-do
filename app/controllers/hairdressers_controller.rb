@@ -32,5 +32,5 @@ end
 private
 
 def hairdresser_params
-  params.require(:hairstlye).permit(:name, :description, :photo_url, :location)
+  params.require(:haridresser).permit(:name, :description, :photo, :location)
 end

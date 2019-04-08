@@ -4,7 +4,6 @@ class HairstylesController < ApplicationController
   end
 
   def show
-
     @hairstyle =  Hairstyle.find(params[:id])
   end
 
@@ -33,5 +32,5 @@ end
 private
 
 def hairstyle_params
-  params.require(:hairstlye).permit(:name, :description, :photo_url, :video_url)
+  params.require(:hairstlye).permit(:name, :description, :photo, :video_url)
 end

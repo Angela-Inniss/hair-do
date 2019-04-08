@@ -1,0 +1,8 @@
+_form.html.erb
+<!-- app/views/articles/_form.html.erb -->
+<%= simple_form_for(hairstyle) do |f| %>
+  <!-- [...] -->
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <!-- [...] -->
+<% end %>
