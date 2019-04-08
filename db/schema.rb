@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_05_134903) do
+ActiveRecord::Schema.define(version: 2019_04_08_104057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(version: 2019_04_05_134903) do
     t.datetime "updated_at", null: false
     t.index ["hairstyle_id"], name: "index_comments_on_hairstyle_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "hairdressers", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "description"
+    t.string "location"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo_url"
+    t.index ["user_id"], name: "index_hairdressers_on_user_id"
   end
 
   create_table "hairstyles", force: :cascade do |t|
@@ -62,6 +74,7 @@ ActiveRecord::Schema.define(version: 2019_04_05_134903) do
 
   add_foreign_key "comments", "hairstyles"
   add_foreign_key "comments", "users"
+  add_foreign_key "hairdressers", "users"
   add_foreign_key "hairstyles", "users"
   add_foreign_key "saved_hairstyles", "hairstyles"
   add_foreign_key "saved_hairstyles", "users"

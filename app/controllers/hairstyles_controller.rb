@@ -33,5 +33,5 @@ end
 private
 
 def hairstyle_params
-  params.require(:hairstlye).permit(:name, :description, :picture_url, :video_url)
+  params.require(:hairstlye).permit(:name, :description, :photo_url, :video_url)
 end
