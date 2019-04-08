@@ -9,5 +9,5 @@ end
 
   resources :saved_recipes, only: :destroy
   resources :comments, only: :destroy
-  resources :hairdresers
+  resources :hairdressers
 end
