@@ -17,7 +17,7 @@ class HairstylesController < ApplicationController
   end
 
   def edit
-   @hairstyle =  Hairstyle.find(params[:id])
+   @hairstyle = Hairstyle.find(params[:id])
   end
 
   def update

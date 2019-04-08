@@ -1,0 +1,26 @@
+index.html.erb
+<h2>See all hairdressers</h2>
+
+<div class="row justify-content-around p-3">
+  <% @hairdressers.each do |hairdresser| %>
+    <div class="card-hairdresser m-3">
+      <div>
+       <!--  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJVvH5nQJp3WUIhCkdYHcRd5bR5szxoDyQI7fzyZbjbVNeDSqc" style='height: 100%; width: 100%; object-fit: contain'> -->
+       <%= cl_image_tag hairdresser.photo, width: 300, height: 200, crop: :fill %>
+
+      </div>
+
+
+
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to hairdresser.name, hairdresser_path(hairdresser) %></h5>
+        <p class="card-title"><%= hairdresser.address%></p>
+        <p class="card-title"><%= hairdresser.location%></p>
+      </div>
+    </div>
+  <% end %>
+  <div>
+    <%= link_to 'Back', root_path %>
+  </div>
+</div>
+

@@ -6,5 +6,5 @@ class Hairstyle < ApplicationRecord
   #validates :photo_url, presence: true
   #validates :video_url, presence: true
  # validates :category, presence: true
- mount_uploader :photo, PhotoUploader
+ #mount_uploader :photo, PhotoUploader
 end

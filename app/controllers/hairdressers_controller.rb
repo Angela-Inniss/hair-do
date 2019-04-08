@@ -13,8 +13,13 @@ class HairdressersController < ApplicationController
   end
 
   def create
-    @hairdresser = Hairdresser.create(hairdresser_params)
-    @hairdresser.save ? (redirect_to hairdresser_path(@hairdresser)) : (render 'new')
+    @hairdresser = Hairdresser.new(hairdresser_params)
+    # @hairdresser.save ? (redirect_to hairdresser_path(@hairdresser)) : (render 'new')
+      if @hairdresser.save!
+        redirect_to hairdresser_path(@hairdresser)
+      else
+        render 'new'
+      end
   end
 
   def edit
@@ -32,5 +37,5 @@ end
 private
 
 def hairdresser_params
-  params.require(:haridresser).permit(:name, :description, :photo, :location)
+  params.require(:hairdresser).permit(:name, :address, :photo, :location, :description, :photo_cache)
 end

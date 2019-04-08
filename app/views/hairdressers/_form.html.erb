@@ -17,13 +17,17 @@
     <%= f.input :location %>
   </div>
 
+   <div class="form-inputs">
+    <%= f.input :description %>
+  </div>
+
   <div class="form-inputs">
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
    </div>
 
   <div class="form-actions">
-    <%= f.button :submit, label: "Submit Form", class: ""  %>
+    <%= f.button :submit, label: "Submit Form", class: "btn btn-primary"  %>
   </div>
   <!-- [...] -->
 <% end %>
