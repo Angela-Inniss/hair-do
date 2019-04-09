@@ -13,11 +13,16 @@ class HairstylesController < ApplicationController
 
   def create
     @hairstyle = Hairstyle.create(hairstyle_params)
-    @hairstyle.save ? (redirect_to hairstyle_path(@hairstyle)) : (render 'new')
+    # @hairstyle.save ? (redirect_to hairstyle_path(@hairstyle)) : (render 'new')
+    if @hairstyle.save!
+      redirect_to hairstyle_path(@hairstyle)
+    else
+        render 'new'
+    end
   end
 
   def edit
-   @hairstyle = Hairstyle.find(params[:id])
+    @hairstyle = Hairstyle.find(params[:id])
   end
 
   def update
@@ -32,5 +37,5 @@ end
 private
 
 def hairstyle_params
-  params.require(:hairstlye).permit(:name, :description, :photo, :video_url)
+  params.require(:hairstyle).permit(:name, :description, :category, :photo, :video_url, :photo_cache)
 end
