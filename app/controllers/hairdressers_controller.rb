@@ -1,7 +1,15 @@
 #
 class HairdressersController < ApplicationController
   def index
-    @hairdressers = Hairdresser.all
+    #@hairdressers = Hairdresser.all
+    @hairdressers = Hairdresser.where.not(latitude: nil, longitude: nil)
+      # array of instances of flat that we iterate over with map which returns an array
+    @markers = @hairdressers.map do |hairdresser|
+      {
+        lat: hairdresser.latitude,
+        lng: hairdresser.longitude
+      }
+    end
   end
 
   def show
