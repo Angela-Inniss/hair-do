@@ -1,15 +1,47 @@
 <h2>See all hairstyles</h2>
+<div class="filters-container">
+    <div class="filters">
+      <!-- <p>Filter by:</p> -->
+      <% if @search != "" %>
+        <%= link_to hairstyles_path(search: @search, category: 'Braids') do %>
+          <button type="button" class="btn btn-light" id="filter-btn"> Braids </button>
+        <% end %>
+         <%= link_to hairstyles_path(search: @search, category: 'Relaxed') do %>
+          <button type="button" class="btn btn-light" id="filter-btn"> Relaxed </button>
+        <% end %>
+         <%= link_to hairstyles_path(search: @search, category: 'Weave') do %>
+          <button type="button" class="btn btn-light" id="filter-btn"> Weave </button>
+        <% end %>
+         <%= link_to hairstyles_path(search: @search, category: 'Natural') do %>
+          <button type="button" class="btn btn-light" id="filter-btn"> Natural</button>
+        <% end %>
+       <% end %>
+    </div>
+  </div>
+
+<div class="flex-box-search">
+  <div class="search-bar">
+    <%= form_tag(hairstyles_path, method: :get) do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search a hair-do", class: "search", class: "form-control" %>
+      </div>
+      <%= submit_tag "Search", class: "button-submit" %>
+      <% end %>
+ </div>
+
 
 <div class="row justify-content-around p-3">
   <% @hairstyles.each do |hairstyle| %>
     <div class="card m-3">
-      <div><img src="https://i.pinimg.com/564x/9d/e3/a1/9de3a11b805b69605de8797bfeeb31ff.jpg?b=t" style='height: 100%; width: 100%; object-fit: contain'></div>
+      <div><!-- <img src="https://i.pinimg.com/564x/9d/e3/a1/9de3a11b805b69605de8797bfeeb31ff.jpg?b=t" style='height: 100%; width: 100%; object-fit: contain'> -->
+      <%= cl_image_tag hairstyle.photo, width: 300, height: 200, crop: :fill %>
+      </div>
 
 
 
       <div class="card-body">
         <h5 class="card-title"><%= link_to hairstyle.name, hairstyle_path(hairstyle) %></h5>
         <p class="card-title"><%= hairstyle.description%></p>
+
       </div>
     </div>
   <% end %>

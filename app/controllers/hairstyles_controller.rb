@@ -1,10 +1,17 @@
 class HairstylesController < ApplicationController
   def index
-    @hairstyles = Hairstyle.all
+    if params[:category].present?
+     # @hairstyles.search_by_category(params[:category])
+      @hairstyles= Hairstyle.where(category: params[:category])
+    elsif params[:search].present?
+      @hairstyles = Hairstyle.where("name ILIKE ?", "%#{params[:search]}%")
+    else
+      @hairstyles = Hairstyle.all
+    end
   end
 
   def show
-    @hairstyle =  Hairstyle.find(params[:id])
+    @hairstyle = Hairstyle.find(params[:id])
   end
 
   def new
@@ -13,11 +20,16 @@ class HairstylesController < ApplicationController
 
   def create
     @hairstyle = Hairstyle.create(hairstyle_params)
-    @hairstyle.save ? (redirect_to hairstyle_path(@hairstyle)) : (render 'new')
+    # @hairstyle.save ? (redirect_to hairstyle_path(@hairstyle)) : (render 'new')
+    if @hairstyle.save!
+      redirect_to hairstyle_path(@hairstyle)
+    else
+        render 'new'
+    end
   end
 
   def edit
-   @hairstyle = Hairstyle.find(params[:id])
+    @hairstyle = Hairstyle.find(params[:id])
   end
 
   def update
@@ -32,5 +44,5 @@ end
 private
 
 def hairstyle_params
-  params.require(:hairstlye).permit(:name, :description, :photo, :video_url)
+  params.require(:hairstyle).permit(:name, :description, :category, :photo, :video_url, :photo_cache)
 end
