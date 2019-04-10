@@ -3,9 +3,9 @@ show.html.erb
 <div class="container">
   <div>
     <%= cl_image_tag @hairstyle.photo, width: 300, height: 200, crop: :fill %>
-    <h1> <%= @hairstyle.name %> </h1>
-    <p><%= @hairstyle.description %></p>
-    <p> <%= @hairstyle.category%></p>
+    <h1><%= @hairstyle.name %></h1>
+    <p><%= @hairstyle.description%></p>
+    <p><%= @hairstyle.category%></p>
     <p><%= @hairstyle.video_url %></p>
   </div>
 </div>
