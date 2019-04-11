@@ -1,5 +1,6 @@
 class Hairdresser < ApplicationRecord
   belongs_to :user, optional: true
+  has_many :comments,  dependent: :destroy
   validates :name, presence: true
   validates :description, presence: true
   validates :location, presence: true
