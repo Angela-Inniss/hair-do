@@ -24,7 +24,9 @@ show.html.erb
   <% else %>
     <% @hairstyle.comments.each do |comment| %>
       <%= render 'comments/show', comment: comment %>
+      <p><%= comment.content %></p>
     <% end %>
   <% end %>
 </div>
 
+<%= render 'comments/form', comment: @comment %>
