@@ -11,4 +11,22 @@ show.html.erb
 </div>
  <div>
     <%= link_to 'Back', hairstyles_path %>
-  </div>
+ </div>
+
+<h6>Comments for: <%= @hairstyle.name %> <small><%= %></small></h6>
+<h2>
+  <%= pluralize @hairstyle.comments.size, "comment" %>
+</h2>
+
+<div id="comments">
+  <% if @hairstyle.comments.blank? %>
+    Be the first to leave a comment for <%= @hairstyle.name %>
+  <% else %>
+    <% @hairstyle.comments.each do |comment| %>
+      <%= render 'comments/show', comment: comment %>
+      <p><%= comment.content %></p>
+    <% end %>
+  <% end %>
+</div>
+
+<%= render 'comments/form', comment: @comment %>
