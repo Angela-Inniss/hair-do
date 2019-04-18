@@ -1,5 +1,3 @@
-show.html.erb
-
 <div class="container">
   <div>
     <%= cl_image_tag @hairstyle.photo, width: 300, height: 200, crop: :fill %>
@@ -24,9 +22,8 @@ show.html.erb
   <% else %>
     <% @hairstyle.comments.each do |comment| %>
       <%= render 'comments/show', comment: comment %>
-      <p><%= comment.content %></p>
     <% end %>
   <% end %>
 </div>
 
-<%= render 'comments/form', comment: @comment %>
+<%= render 'comments/form', hairstyle: @hairstyle, comment: @comment %>
