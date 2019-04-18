@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module HairDo
   class Application < Rails::Application
+    config.action_view.embed_authenticity_token_in_remote_forms = true
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
@@ -17,3 +18,4 @@ module HairDo
     # the framework and any gems in your application.
   end
 end
+
