@@ -1,4 +1,4 @@
-<h2>See all hairstyles</h2>
+<h1 id="index-title">Hair Inspo</h1>
 <div class="filters-container">
     <div class="filters">
       <!-- <p>Filter by:</p> -->
@@ -38,6 +38,7 @@
       <div class="card-body">
         <h5 class="card-title"><%= link_to hairstyle.name, hairstyle_path(hairstyle) %></h5>
         <p class="card-title"><%= hairstyle.description%></p>
+
         <% if current_user == hairstyle.user %>
          <p> <%= link_to "Delete hairstyle", hairstyle_path(hairstyle), method: :delete, data: { confirm: "Are you sure?" }%></p>
         <%end %>
