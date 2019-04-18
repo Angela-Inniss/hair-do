@@ -5,10 +5,10 @@ class Hairstyle < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   # validates :photo_url, presence: true
-  validates :video_url, presence: true
+ # validates :video_url, presence: true
   validates :category, presence: true
-  validates :content, presence: true
-  validates :content, length: { minimum: 20 }
+
+  #validates :content, length: { minimum: 20 }
 
   mount_uploader :photo, PhotoUploader
 

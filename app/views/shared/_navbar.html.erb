@@ -50,9 +50,21 @@
           <%= link_to 'See all hairstyles', hairstyles_path, class: "nav-link" %>
         </div>
         <div class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "link-item"%>
+          <%= link_to 'See all salons', hairdressers_path, class: "nav-link" %>
+        </div>
+        <div class="nav-item">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link"%>
         </div>
       <% else %>
+        <div class="nav-item active">
+          <%= link_to 'Upload a Salon', new_hairdresser_path, class: "nav-link" %>
+        </div>
+        <div class="nav-item">
+          <%= link_to 'See all hairstyles', hairstyles_path, class: "nav-link" %>
+        </div>
+        <div class="nav-item">
+          <%= link_to 'See all salons', hairdressers_path, class: "nav-link" %>
+        </div>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>

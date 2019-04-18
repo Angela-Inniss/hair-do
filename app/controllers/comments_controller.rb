@@ -10,13 +10,13 @@ class CommentsController < ApplicationController
     @hairstyle = Hairstyle.find(params[:hairstyle_id])
     @comment = Comment.new(comment_params)
     @comment.hairstyle = @hairstyle
-    if @comment.save
+
+     if @comment.save
       redirect_to hairstyle_path(@hairstyle)
     else
       render 'hairstyles/show'
     end
   end
-
 
   def destroy
   end
