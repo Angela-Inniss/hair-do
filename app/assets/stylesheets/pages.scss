@@ -1,3 +1,23 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.home-layout {
+  background-image: url("");
+  //height:100vh;
+  width:100%;
+}
+
+.navbar-lewagon {
+  display:none;
+}
+
+#home-title h1{
+  font-size: 350px;
+  //text-shadow: 0 6px 0 #E67E22;
+  text-shadow: 0 6px 0 grey;
+
+}
+
+.text-center {
+  text-align: center;
+}

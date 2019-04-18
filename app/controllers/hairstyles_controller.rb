@@ -32,19 +32,25 @@ class HairstylesController < ApplicationController
 
   def edit
     @hairstyle = Hairstyle.find(params[:id])
+
   end
 
   def update
-    @hairstyle =  Hairstyle.find(params[:id])
+    @hairstyle = Hairstyle.find(params[:id])
+    @hairstyle.update(hairstyle_params)
+    redirect_to hairstyles_path
   end
 
   def destroy
     @hairstyle =  Hairstyle.find(params[:id])
+    @hairstyle.destroy
+    redirect_to hairstyles_path
+  end
+
+  private
+
+  def hairstyle_params
+    params.require(:hairstyle).permit(:name, :description, :category, :photo, :video_url, :photo_cache)
   end
 end
 
-private
-
-def hairstyle_params
-  params.require(:hairstyle).permit(:name, :description, :category, :photo, :video_url, :photo_cache)
-end

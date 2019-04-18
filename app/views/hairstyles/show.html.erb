@@ -1,3 +1,4 @@
+
 <div class="container">
   <div>
     <%= cl_image_tag @hairstyle.photo, width: 300, height: 200, crop: :fill %>
@@ -9,6 +10,7 @@
 </div>
  <div>
     <%= link_to 'Back', hairstyles_path %>
+     <%= link_to 'Edit', edit_hairstyle_path %>
  </div>
 
 <h6>Comments for: <%= @hairstyle.name %> <small><%= %></small></h6>
