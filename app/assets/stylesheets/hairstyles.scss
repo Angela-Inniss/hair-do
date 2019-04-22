@@ -9,6 +9,15 @@
   /* width: 300px; */
   border-radius:  15px !important;
 }
+.card2 {
+    //background-color: gray;
+    border-radius: 15px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.3);
+    //position: absolute;
+    //bottom: 75px;
+    //left: 85px;
+   // width: 202px; ASK JOSE!!
+}
 .card-body {
   display:flex;
   flex-direction: column;
@@ -16,8 +25,18 @@
   //position: absolute;
     top: 115px;
     left: 10%;
-    color: white;
+    color: pink;
+    font-weight: bold;
 }
+
+/* .card-body{
+  flex-direction:row; ASK JOSE!
+}
+ */
+
+ .card-body-inner2 {
+    justify-content: space-around;
+ }
 
 .flex-box-search {
   display:flex;
@@ -47,3 +66,10 @@ letter-spacing: 10px;
 
 }
 
+div.transbox {
+  //margin: 30px;
+  background-color: #ffffff;
+  //border: 1px solid black;
+  opacity: 0.6;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+}
