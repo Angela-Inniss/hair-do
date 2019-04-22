@@ -33,15 +33,27 @@
   <% @hairstyles.each do |hairstyle| %>
     <div class="card m-3">
       <div><!-- <img src="https://i.pinimg.com/564x/9d/e3/a1/9de3a11b805b69605de8797bfeeb31ff.jpg?b=t" style='height: 100%; width: 100%; object-fit: contain'> -->
-      <%= cl_image_tag hairstyle.photo, width: 300, height: 200, crop: :fill %>
+      <%= cl_image_tag hairstyle.photo, width: 300, height: 200, crop: :fill, class: 'card-image'%>
       </div>
       <div class="card-body">
-        <h5 class="card-title"><%= link_to hairstyle.name, hairstyle_path(hairstyle) %></h5>
-        <p class="card-title"><%= hairstyle.description%></p>
+        <div class="card2">
+          <div class="card-body-inner1 transbox">
+            <h5 class="card-title"><%= link_to hairstyle.name, hairstyle_path(hairstyle) %></h5>
+            <p> England,uk</p>
+          </div>
 
-        <% if current_user == hairstyle.user %>
-         <p> <%= link_to "Delete hairstyle", hairstyle_path(hairstyle), method: :delete, data: { confirm: "Are you sure?" }%></p>
-        <%end %>
+          <div class ="card-body-inner2 d-flex">
+            <p> Likes</p>
+            <p> Share</p>
+            <!--if the user who is logged in created the hairstyle i.e it belongs to that user i can do hairstlye.user because a user belongs_to a hairstyle in the model-->
+            <% if current_user == hairstyle.user %>
+           <p> <%= link_to "Delete", hairstyle_path(hairstyle), method: :delete, data: { confirm: "Are you sure?" }%></p>
+          <%end %>
+          </div>
+          <!--<p class="card-title"><%= hairstyle.description%></p>-->
+      </div>
+
+
       </div>
     </div>
   <% end %>
