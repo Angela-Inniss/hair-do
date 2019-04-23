@@ -7,6 +7,7 @@ class Hairstyle < ApplicationRecord
  # validates :photo_url, presence: true
  # validates :video_url, presence: true
   validates :category, presence: true
+  validates :location, presence: true
 
   #validates :content, length: { minimum: 20 }
 
