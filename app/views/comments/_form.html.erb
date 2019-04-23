@@ -1,5 +1,5 @@
 <div class="flex-box">
-  <%= simple_form_for([hairstyle, comment ]) do |form| %>
+  <%= simple_form_for([hairstyle, comment ], remote: true) do |form| %>
     <%= form.input :content, as: :text %>
     <%= form.button :submit %>
   <% end %>
