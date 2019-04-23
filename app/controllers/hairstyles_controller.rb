@@ -50,7 +50,7 @@ class HairstylesController < ApplicationController
   private
 
   def hairstyle_params
-    params.require(:hairstyle).permit(:name, :description, :category, :photo, :video_url, :photo_cache)
+    params.require(:hairstyle).permit(:name, :description, :category, :location, :stylist, :photo, :video_url, :photo_cache)
   end
 end
 
