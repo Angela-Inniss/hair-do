@@ -23,6 +23,7 @@ class HairstylesController < ApplicationController
   def create
     @hairstyle = Hairstyle.create(hairstyle_params)
     # @hairstyle.save ? (redirect_to hairstyle_path(@hairstyle)):(render 'new')
+    @hairstyle.user = current_user
     if @hairstyle.save!
       redirect_to hairstyle_path(@hairstyle)
     else
@@ -50,7 +51,7 @@ class HairstylesController < ApplicationController
   private
 
   def hairstyle_params
-    params.require(:hairstyle).permit(:name, :description, :category, :photo, :video_url, :photo_cache)
+    params.require(:hairstyle).permit(:name, :description, :category, :location, :stylist, :photo, :video_url, :photo_cache)
   end
 end
 
