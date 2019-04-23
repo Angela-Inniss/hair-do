@@ -10,7 +10,9 @@
 </div>
  <div>
     <%= link_to 'Back', hairstyles_path %>
-     <%= link_to 'Edit', edit_hairstyle_path %>
+    <% if @hairstyle.user == current_user %>
+    <%= link_to 'Edit', edit_hairstyle_path %>
+    <% end %>
  </div>
 
 <h6>Comments for: <%= @hairstyle.name %> <small><%= %></small></h6>

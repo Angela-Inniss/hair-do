@@ -23,6 +23,7 @@ class HairstylesController < ApplicationController
   def create
     @hairstyle = Hairstyle.create(hairstyle_params)
     # @hairstyle.save ? (redirect_to hairstyle_path(@hairstyle)):(render 'new')
+    @hairstyle.user = current_user
     if @hairstyle.save!
       redirect_to hairstyle_path(@hairstyle)
     else
