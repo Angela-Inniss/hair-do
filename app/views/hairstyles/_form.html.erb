@@ -13,6 +13,14 @@
   </div>
 
   <div class="form-inputs">
+    <%= f.input :location %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.input :stylist, label: 'Who did your hair?' %>
+  </div>
+
+  <div class="form-inputs">
     <%= f.input :category, collection: ["Braids", "Relaxed", "Natural", "Weave"] %>
   </div>
 
