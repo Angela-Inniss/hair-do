@@ -12,12 +12,19 @@ class CommentsController < ApplicationController
     @comment.hairstyle = @hairstyle
     @comment.user = @user
 
-     if @comment.save!
-      redirect_to hairstyle_path(@hairstyle)
+    if @comment.save!
+
+      respond_to do |format|
+        format.js # will render your create.js.erb file in case of an ajax call
+        format.html do
+          redirect_to hairstyle_path(@hairstyle) # will redirect to the correct path in case of a html call
+        end
+      end
     else
       render 'hairstyles/show'
     end
   end
+
 
   def destroy
   end
