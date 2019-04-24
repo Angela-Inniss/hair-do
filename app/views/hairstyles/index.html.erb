@@ -38,13 +38,19 @@
       <div class="card-body">
         <div class="card2">
           <div class="card-body-inner1 transbox">
-            <h5 class="card-title"><%= link_to hairstyle.name, hairstyle_path(hairstyle) %></h5>
-            <p>Location: <%= hairstyle.location%></p>
+            <h5 class="card-title" id="title" ><%= link_to hairstyle.name, hairstyle_path(hairstyle) %>
+              <i class="fas fa-plus-circle"></i>
+            </h5>
+            <p><%= hairstyle.location%></p>
+          </div>
+          <div class="" style="margin: -40px 0 0 0">
+           <%= link_to hairstyle.name, hairstyle_path(hairstyle) %>
           </div>
 
           <div class ="card-body-inner2 d-flex">
-            <p> Likes</p>
+            <p> likes</p>
             <p> Share</p>
+
             <!--if the user who is logged in created the hairstyle i.e it belongs to that user i can do hairstlye.user because a user belongs_to a hairstyle in the model-->
 
           <% if hairstyle.user == current_user%>

@@ -33,7 +33,6 @@ class HairstylesController < ApplicationController
 
   def edit
     @hairstyle = Hairstyle.find(params[:id])
-
   end
 
   def update
@@ -54,4 +53,3 @@ class HairstylesController < ApplicationController
     params.require(:hairstyle).permit(:name, :description, :category, :location, :stylist, :photo, :video_url, :photo_cache)
   end
 end
-

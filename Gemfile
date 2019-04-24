@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
+gem 'font-awesome-sass'
 gem 'pry'
 gem 'pg_search'
 gem 'bootstrap', '~> 4.3.1'
