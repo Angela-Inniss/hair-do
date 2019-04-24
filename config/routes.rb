@@ -11,4 +11,3 @@ end
   resources :comments, only: :destroy
   resources :hairdressers
 end
-
