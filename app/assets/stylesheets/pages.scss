@@ -2,38 +2,90 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .home-layout {
-  background-image: url("https://4cjz9s2texp5a66rp37l3uty-wpengine.netdna-ssl.com/wp-content/uploads/2017/02/1486490083/Screen%20Shot%202017-02-07%20at%2010.07.31%20AM.png");
+  background-image: url("");
   width:100%;
-background-repeat: no-repeat;
-    background-origin: content-box;
-    background-size: cover;
-    background-position: bottom;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-size: cover;
+  background-position: bottom;
+  height: 100vh;
 }
 
 .navbar-lewagon {
   display:none;
 }
 
-#home-title h1 {
-  font-size: 300px;
-  //text-shadow: 0 6px 0 #E67E22;
+.home-title h1 {
+  font-size: 200px;
   text-shadow: 0 6px 0 pink;
+ }
+
+ .home-title h2 {
+    font-size: 200px;
+    text-shadow: 0 6px 0 pink;
+  }
+
+.afro-comb img {
+  height:100px;
 }
 
 .text-center {
   text-align: center;
 }
 
-
-
-.button{
-
-    //font-family: 'Open Sans', 'Helvetica', 'sans-serif';
+.button {
     padding: 10px 15px;
     box-shadow: 0 10px 0 rgba(0,0,0,0.1);
     position: relative;
     background-color:pink;
     color:white;
     border-radius: 10px;
-
 }
+
+@media only screen and (min-width: 200px) {
+  .home-title h1 {
+    font-size: 150px;
+  }
+}
+
+
+@media only screen and (min-width: 200px) {
+  .home-title h2 {
+    font-size: 150px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+ .flex-box-search {
+    display: flex;
+    flex-direction: row;
+    border: none;
+    padding: 10px 5px;
+    width: 80%;
+    background-color: white;
+    box-shadow: 0 15px 0 rgba(0,0,0,0.1);
+ /*    position: relative; */
+    top: 221px;
+    width: 353px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .flex-box-search {
+    width: 250px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .flex-box-search {
+    width: 200px;
+  }
+}
+
+
+@media only screen and (min-width: 576pxpx) {
+  .flex-box-search {
+    width: 150px;
+  }
+}
+
