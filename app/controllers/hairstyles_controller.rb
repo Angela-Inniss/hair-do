@@ -42,8 +42,14 @@ class HairstylesController < ApplicationController
   end
 
   def destroy
-    @hairstyle =  Hairstyle.find(params[:id])
+    @hairstyle = Hairstyle.find(params[:id])
     @hairstyle.destroy
+    redirect_to hairstyles_path
+  end
+
+  def upvote
+    @hairstyle = Hairstyle.find(params[:id])
+    @hairstyle.upvote_by current_user
     redirect_to hairstyles_path
   end
 

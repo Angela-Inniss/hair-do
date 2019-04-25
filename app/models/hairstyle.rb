@@ -1,4 +1,3 @@
-
 class Hairstyle < ApplicationRecord
   belongs_to :user, optional: true
   has_many :comments, dependent: :destroy
@@ -7,10 +6,7 @@ class Hairstyle < ApplicationRecord
  # validates :photo_url, presence: true
  # validates :video_url, presence: true
   validates :category, presence: true
-
-
-  #validates :content, length: { minimum: 20 }
-
+  acts_as_votable :hairstyle
   mount_uploader :photo, PhotoUploader
 
   include PgSearch

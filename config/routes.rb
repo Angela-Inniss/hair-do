@@ -5,9 +5,14 @@ Rails.application.routes.draw do
   resources :hairstyles do
   resources :comments, only: :create
   resources :saved_hairstyles, only: [:new, :create]
+  member do
+    put "like", to: "hairstyles#upvote"
+    put "dislike", to: "hairstyles#downvote"
+  end
 end
 
   resources :saved_recipes, only: :destroy
   resources :comments, only: :destroy
   resources :hairdressers
 end
+
