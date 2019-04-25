@@ -66,7 +66,9 @@
   <% end %>
 
   <% @hairstyles.each do |hairstyle| %>
-    <%= link_to "upvote", like_hairstyle_path(hairstyle), method: :put%>
+    <%= link_to "Like", like_hairstyle_path(hairstyle), method: :put%>
+    <i class="fa fa-heart"></i>
   <%end %>
 </div>
+
 
