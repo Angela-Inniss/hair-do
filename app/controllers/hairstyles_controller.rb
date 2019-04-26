@@ -49,7 +49,13 @@ class HairstylesController < ApplicationController
 
   def upvote
     @hairstyle = Hairstyle.find(params[:id])
-    @hairstyle.upvote_by current_user
+    @hairstyle.upvote_from current_user
+    redirect_to hairstyles_path
+  end
+
+  def downvote
+    @hairstyle = Hairstyle.find(params[:id])
+    @hairstyle.downvote_from current_user
     redirect_to hairstyles_path
   end
 

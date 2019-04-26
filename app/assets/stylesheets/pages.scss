@@ -2,12 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .home-layout {
-  background-image: url("");
+  background-image: url("https://thumbs.dreamstime.com/z/modelo-incons%C3%BAtil-geom%C3%A9trico-de-la-rociada-ca%C3%B3tica-blanco-y-negro-vector-69972723.jpg");
   width:100%;
   background-repeat: no-repeat;
-  background-origin: content-box;
+  /* background-origin: content-box; */
   background-size: cover;
-  background-position: bottom;
+  /* background-position: bottom; */
   height: 100vh;
 }
 
@@ -15,18 +15,15 @@
   display:none;
 }
 
-.home-title h1 {
+/* .home-title h1 {
   font-size: 200px;
   text-shadow: 0 6px 0 pink;
  }
-
- .home-title h2 {
-    font-size: 200px;
-    text-shadow: 0 6px 0 pink;
-  }
+ */
 
 .afro-comb img {
-  height:100px;
+  height:300px;
+  padding: 12px;
 }
 
 .text-center {
@@ -42,50 +39,51 @@
     border-radius: 10px;
 }
 
-@media only screen and (min-width: 200px) {
-  .home-title h1 {
-    font-size: 150px;
-  }
+
+
+@media only screen and (min-width: 1000px) {
+.header {
+  color: lightsalmon;
+  font-weight: bolder;
+  font-size: 400px !important;
+  /* text-shadow: 0 6px 0 pink; */
+  text-shadow: 13px 1px 10px black;
+
+ }
+}
+
+ @media only screen and (min-width: 992px) {
+  .header  {
+  color: lightsalmon;
+  font-weight: bolder;
+  font-size: 200px !important;
+ /*  text-shadow: 0 6px 0 pink; */
+  text-shadow: 13px 1px 10px black;
+ }
+}
+
+/* 768px and up to the next break point do this*/
+ @media only screen and (min-width: 768px) {
+  .header  {
+  font-size: 150px !important;
+  color: lightsalmon;
+  font-weight: bolder;
+ /*  text-shadow: 0 6px 0 pink; */
+ text-shadow: 13px 1px 10px black;
+ }
+}
+
+/* 200px and up to the next break point do this*/
+ @media only screen and (min-width: 200px) {
+  .header  {
+  font-size: 100px !important;
+  color: lightsalmon;
+  font-weight: bolder;
+  /* text-shadow: 0 6px 0 pink; */
+  text-shadow: 13px 1px 10px black;
+  padding: 50px
+ }
 }
 
 
-@media only screen and (min-width: 200px) {
-  .home-title h2 {
-    font-size: 150px;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
- .flex-box-search {
-    display: flex;
-    flex-direction: row;
-    border: none;
-    padding: 10px 5px;
-    width: 80%;
-    background-color: white;
-    box-shadow: 0 15px 0 rgba(0,0,0,0.1);
- /*    position: relative; */
-    top: 221px;
-    width: 353px;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .flex-box-search {
-    width: 250px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .flex-box-search {
-    width: 200px;
-  }
-}
-
-
-@media only screen and (min-width: 576pxpx) {
-  .flex-box-search {
-    width: 150px;
-  }
-}
 

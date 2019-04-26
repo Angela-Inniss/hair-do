@@ -59,16 +59,20 @@
           </div>
           <!--<p class="card-title"><%= hairstyle.description%></p>-->
       </div>
-
-
       </div>
     </div>
   <% end %>
+<!--this is a link block- create the block and then add elements inside?-->
+      <%= link_to like_hairstyle_path(hairstyle), class: 'like' method: :put do %>
+      <i class="fa fa-heart">
+      <span><%= hairstyle.get_upvotes.size %><span>
+      </i>
+    <%end %>
 
-  <% @hairstyles.each do |hairstyle| %>
-    <%= link_to "Like", like_hairstyle_path(hairstyle), method: :put%>
-    <i class="fa fa-heart"></i>
-  <%end %>
+    <!--this is a link block- create the block and then add elements inside?-->
+      <%= link_to like_hairstyle_path(hairstyle), class: 'like' method: :put do %>
+      <i class="fa fa-heart">
+      <span><%= hairstyle.get_downvotes.size %><span>
+      </i>
+    <%end %>
 </div>
-
-
