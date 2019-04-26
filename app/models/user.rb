@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_many :comments
   has_many :hairstyles
   has_many :saved_hairstyles
-  act_as_votable
+  acts_as_voter
 end
