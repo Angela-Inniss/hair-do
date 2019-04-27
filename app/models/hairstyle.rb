@@ -6,7 +6,7 @@ class Hairstyle < ApplicationRecord
  # validates :photo_url, presence: true
  # validates :video_url, presence: true
   validates :category, presence: true
-  act_as_votable
+  acts_as_votable
   mount_uploader :photo, PhotoUploader
 
   include PgSearch

@@ -32,8 +32,8 @@
 <div class="row justify-content-around p-3">
   <% @hairstyles.each do |hairstyle| %>
     <div class="card m-3">
-      <div><!-- <img src="https://i.pinimg.com/564x/9d/e3/a1/9de3a11b805b69605de8797bfeeb31ff.jpg?b=t" style='height: 100%; width: 100%; object-fit: contain'> -->
-      <%= cl_image_tag hairstyle.photo, width: 300, height: 200, crop: :fill, class: 'card-image'%>
+      <div>
+        <%= cl_image_tag hairstyle.photo, width: 300, height: 200, crop: :fill, class: 'card-image'%>
       </div>
       <div class="card-body">
         <div class="card2">
@@ -48,31 +48,26 @@
          </div> -->
 
           <div class ="card-body-inner2 d-flex">
-           <i class="fa fa-heart"></i>
-          <i class="fas fa-share-alt"> </i>
+            <%= link_to like_hairstyle_path(hairstyle), method: :put do %>
+               <i class="fa fa-heart">
+                <span><%= hairstyle.get_upvotes.size %><span>
+               </i>
+            <% end %>
+            <%= link_to dislike_hairstyle_path(hairstyle), method: :put do %>
+               <i class="fa fa-heart">
+                <span><%= hairstyle.get_downvotes.size %><span>
+               </i>
+            <% end %>
 
-            <!--if the user who is logged in created the hairstyle i.e it belongs to that user i can do hairstlye.user because a user belongs_to a hairstyle in the model-->
 
-          <% if hairstyle.user == current_user%>
-           <p> <%= link_to "Delete", hairstyle_path(hairstyle), method: :delete, data: { confirm: "Are you sure?" }%></p>
-          <%end %>
+            <i class="fas fa-share-alt"> </i>
+              <!--if the user who is logged in created the hairstyle i.e it belongs to that user i can do hairstlye.user because a user belongs_to a hairstyle in the model-->
+            <% if hairstyle.user == current_user%>
+               <p> <%= link_to "Delete", hairstyle_path(hairstyle), method: :delete, data: { confirm: "Are you sure?" }%></p>
+            <%end %>
           </div>
-          <!--<p class="card-title"><%= hairstyle.description%></p>-->
-      </div>
+        </div>
       </div>
     </div>
   <% end %>
-<!--this is a link block- create the block and then add elements inside?-->
-      <%= link_to like_hairstyle_path(hairstyle), class: 'like' method: :put do %>
-      <i class="fa fa-heart">
-      <span><%= hairstyle.get_upvotes.size %><span>
-      </i>
-    <%end %>
-
-    <!--this is a link block- create the block and then add elements inside?-->
-      <%= link_to like_hairstyle_path(hairstyle), class: 'like' method: :put do %>
-      <i class="fa fa-heart">
-      <span><%= hairstyle.get_downvotes.size %><span>
-      </i>
-    <%end %>
 </div>
