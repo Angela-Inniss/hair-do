@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
+gem 'pundit'
 gem 'acts_as_votable', '~> 0.12.0'
 gem 'font-awesome-sass'
 gem 'pry'

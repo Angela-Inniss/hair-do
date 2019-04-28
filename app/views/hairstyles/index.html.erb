@@ -61,13 +61,20 @@
 
 
             <i class="fas fa-share-alt"> </i>
-              <!--if the user who is logged in created the hairstyle i.e it belongs to that user i can do hairstlye.user because a user belongs_to a hairstyle in the model-->
-            <% if hairstyle.user == current_user%>
+              <!--if the user who is logged in created the hairstyle i.e it belongs to that user i can do hairstlye.user because a user belongs_to a hairstyle in the model this is just hiding the link from users who are not logged in though. if anyone had the URL they could delete the hairstyle. Need to use pundit to give permissions
+            <% if current_user == hairstyle.user%>
                <p> <%= link_to "Delete", hairstyle_path(hairstyle), method: :delete, data: { confirm: "Are you sure?" }%></p>
-            <%end %>
+           <%end %> -->
+
+            <!-- if pundit policy permits to delete hairstlye you may delete this is looking at the destroy method in the hairstyle_policy.rb-->
+           <% if policy(hairstyle).destroy? %>
+              <p><%= link_to "Delete", hairstyle_path(hairstyle),method: :delete, data: { confirm: "Are you sure?" }%></p>
+           <% end %>
           </div>
         </div>
       </div>
     </div>
   <% end %>
 </div>
+
+
