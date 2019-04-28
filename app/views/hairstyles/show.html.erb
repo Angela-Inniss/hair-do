@@ -10,10 +10,14 @@
 </div>
  <div>
     <%= link_to 'Back', hairstyles_path %>
-    <% if @hairstyle.user == current_user %>
+    <!-- pundit authorisation policy-->
+    <% if policy(@hairstyle).edit?%>
     <%= link_to 'Edit', edit_hairstyle_path %>
     <% end %>
  </div>
+
+
+
 
 <h6>Comments for: <%= @hairstyle.name %> <small><%= %></small></h6>
 <h2>

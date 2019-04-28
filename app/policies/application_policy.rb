@@ -37,7 +37,11 @@ class ApplicationPolicy
     false
   end
 
-   def upvote?
+  def upvote?
+    false
+  end
+
+   def downvote?
     false
   end
 

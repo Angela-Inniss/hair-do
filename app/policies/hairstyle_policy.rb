@@ -30,6 +30,10 @@ class HairstylePolicy < ApplicationPolicy
   end
 
   def upvote?
-    record.user == user # this should mean that anyone can upvote?
+    return true # this should mean that anyone can upvote?
+  end
+
+  def downvote?
+    return true # this should mean that anyone can upvote?
   end
 end
