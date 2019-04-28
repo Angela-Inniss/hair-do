@@ -1,9 +1,11 @@
 class HairstylesController < ApplicationController
   def index
     if params[:category].present?
+      @hairstyles = policy_scope(Hairstyle).order(created_at: :desc)
      # @hairstyles.search_by_category(params[:category])
       @hairstyles = Hairstyle.where(category: params[:category])
     elsif params[:search].present?
+      @hairstyles = policy_scope(Hairstyle).order(created_at: :desc)
       @hairstyles = Hairstyle.where('name ILIKE ?', '%#{params[:search]}%')
     else
       # @hairstyles = Hairstyle.all - this is showing all hairstyles w/o pundit
@@ -38,6 +40,7 @@ class HairstylesController < ApplicationController
 
   def edit
     @hairstyle = Hairstyle.find(params[:id])
+    authorize @hairstyle
   end
 
   def update
@@ -47,21 +50,22 @@ class HairstylesController < ApplicationController
   end
 
   def destroy
-    authorize @hairstyle
     @hairstyle = Hairstyle.find(params[:id])
+    authorize @hairstyle
     @hairstyle.destroy
     redirect_to hairstyles_path
   end
 
   def upvote
-    authorize @hairstyle
     @hairstyle = Hairstyle.find(params[:id])
+    authorize @hairstyle
     @hairstyle.upvote_from current_user
     redirect_to hairstyles_path
   end
 
   def downvote
     @hairstyle = Hairstyle.find(params[:id])
+    authorize @hairstyle
     @hairstyle.downvote_from current_user
     redirect_to hairstyles_path
   end
