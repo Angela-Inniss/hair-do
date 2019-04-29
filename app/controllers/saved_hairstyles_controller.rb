@@ -20,4 +20,8 @@ class SavedHairstylesController < ApplicationController
     format.js {}
   end
   end
+
+  def show
+    @saved_hairstyle = SavedHairstyle.where(hairstyle: Hairstyle.find(params[:hairstyle]), user: current_user)
+  end
 end

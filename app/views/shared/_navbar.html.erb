@@ -25,6 +25,9 @@
         <div class="nav-item">
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link"%>
         </div>
+        <div class="nav-item">
+          <p class="hi">Hi,<%= current_user.email%></p>
+        </div>
       <% else %>
         <div class="nav-item active logo">
            <%= link_to root_path, class: "logo" do %>
