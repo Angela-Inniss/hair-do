@@ -19,14 +19,14 @@
     </div>
   </div>
 
-<!-- <div class="flex-box-search">
+ <div class="flex-box-search">
   <div class="search-bar">
     <%= form_tag(hairstyles_path, method: :get) do %>
       <%= text_field_tag :search, params[:search], placeholder: "Search a hair-do", class: "search", class: "form-control" %>
       </div>
       <%= submit_tag "Search", class: "button-submit" %>
       <% end %>
- </div> -->
+ </div>
 
 
 <div class="row justify-content-around p-3">
@@ -41,7 +41,7 @@
             <h5 class="card-title" id="title" ><%= link_to hairstyle.name, hairstyle_path(hairstyle) %>
               <h6><%=hairstyle.location%></h6>
             </h5>
-            <i class="fas fa-plus-circle"></i>
+               <i class="fas fa-plus-circle"></i>
           </div>
          <!-- <div class="" style="margin: -40px 0 0 0">
           <%= link_to hairstyle.name, hairstyle_path(hairstyle) %>
