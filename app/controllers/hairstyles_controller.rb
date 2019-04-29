@@ -1,4 +1,5 @@
 class HairstylesController < ApplicationController
+   before_action :find_hairstyle, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   def index
     if params[:category].present?
       @hairstyles = policy_scope(Hairstyle).order(created_at: :desc)
@@ -15,7 +16,7 @@ class HairstylesController < ApplicationController
   end
 
   def show
-    @hairstyle = Hairstyle.find(params[:id])
+    #@hairstyle = Hairstyle.find(params[:id])
     authorize @hairstyle
     @comment = Comment.new
     @saved_hairstyle_exists = SavedHairstyle.where(hairstyle: @hairstyle, user: current_user) == [] ? false : true
@@ -40,32 +41,33 @@ class HairstylesController < ApplicationController
   end
 
   def edit
-    @hairstyle = Hairstyle.find(params[:id])
+    #@hairstyle = Hairstyle.find(params[:id])
     authorize @hairstyle
   end
 
   def update
-    @hairstyle = Hairstyle.find(params[:id])
+    #@hairstyle = Hairstyle.find(params[:id])
+    authorize @hairstyle
     @hairstyle.update(hairstyle_params)
     redirect_to hairstyles_path
   end
 
   def destroy
-    @hairstyle = Hairstyle.find(params[:id])
+    #@hairstyle = Hairstyle.find(params[:id])
     authorize @hairstyle
     @hairstyle.destroy
     redirect_to hairstyles_path
   end
 
   def upvote
-    @hairstyle = Hairstyle.find(params[:id])
+    #@hairstyle = Hairstyle.find(params[:id])
     authorize @hairstyle
     @hairstyle.upvote_from current_user
     redirect_to hairstyles_path
   end
 
   def downvote
-    @hairstyle = Hairstyle.find(params[:id])
+    #@hairstyle = Hairstyle.find(params[:id])
     authorize @hairstyle
     @hairstyle.downvote_from current_user
     redirect_to hairstyles_path
@@ -75,5 +77,9 @@ class HairstylesController < ApplicationController
 
   def hairstyle_params
     params.require(:hairstyle).permit(:name, :description, :category, :location, :stylist, :photo, :video_url, :photo_cache)
+  end
+
+  def find_hairstyle
+    @hairstyle = Hairstyle.find(params[:id])
   end
 end
