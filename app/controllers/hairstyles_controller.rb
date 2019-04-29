@@ -18,6 +18,7 @@ class HairstylesController < ApplicationController
     @hairstyle = Hairstyle.find(params[:id])
     authorize @hairstyle
     @comment = Comment.new
+    @saved_hairstyle_exists = SavedHairstyle.where(hairstyle: @hairstyle, user: current_user) == [] ? false : true
     #@comments = @comment.hairstyle
   end
 
