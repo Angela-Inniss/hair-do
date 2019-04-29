@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       put "dislike", to: "hairstyles#downvote"
     end
     resources :comments, only: :create
-    resources :saved_hairstyles, only: [:update, :show]
+    resources :saved_hairstyles, only: [:new,:create]
   end
   resources :saved_hairstyles, only: :destroy
   resources :comments, only: :destroy
