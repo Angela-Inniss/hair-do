@@ -14,9 +14,6 @@
     <% if policy(@hairstyle).edit?%>
     <%= link_to 'Edit', edit_hairstyle_path %>
     <% end %>
-
-
-  <%= link_to 'bookmark hairstyle', hairstyle_saved_hairstyle_path(hairstyle_id: @hairstyle.id) %>
  </div>
 
 

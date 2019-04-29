@@ -1,9 +1,4 @@
 class ApplicationController < ActionController::Base
-  def saved_recipe_text
-    return @saved_hairstyle_exists ? "unbookmark" : "bookmark"
-    helper_method :saved_hairstyle_text
-  end
-
   # this means the user has to be signed in
 before_action :authenticate_user!
   include Pundit
