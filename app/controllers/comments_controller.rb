@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
     # we need to find the hairstyle route would be
     # hairstyle/hairstyle id/comments
     @hairstyle = Hairstyle.find(params[:hairstyle_id])
+    authorize @hairstyle
     @comment = Comment.new(comment_params)
     @comment.hairstyle = @hairstyle
     @comment.user = @user
