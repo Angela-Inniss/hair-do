@@ -5,7 +5,7 @@ console.log('hello ajax')
   var newComment  = "<%= j render 'comments/show',comment: @comment%>";
   // 2. append the new review to the list
   var comments = document.getElementById('comments');
-  comments.insertAdjacentHTML('beforeend', newComment)
+    comments.insertAdjacentHTML('beforeend', newComment)
 
   // 3. Empty out the input box
  var inputBox = document.getElementById('comment_content');

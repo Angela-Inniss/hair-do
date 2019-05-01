@@ -1,5 +1,5 @@
-#
 class HairdressersController < ApplicationController
+   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     #@hairdressers = Hairdresser.all
     @hairdressers = Hairdresser.where.not(latitude: nil, longitude: nil)
