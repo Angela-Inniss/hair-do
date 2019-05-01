@@ -41,7 +41,21 @@
             <h5 class="card-title" id="title" ><%= link_to hairstyle.name, hairstyle_path(hairstyle) %>
               <h6><%=hairstyle.location%></h6>
             </h5>
-               <i class="fas fa-plus-circle"></i>
+            <div class="bookmark">
+            <!-- declaring what a saved/bookmarked hairstyle is. A bookedmarkd hairstyle is made up of a current user and a hairstyle id(foreign keys)-->
+              <% saved_hairstyle = SavedHairstyle.find_by(user: current_user, hairstyle: hairstyle.id) %>
+              <!-- so if this hairstyle is saved/book marked make the plus sign look like the following and perform the function in the create.js.erb file post request-->
+              <% if saved_hairstyle %>
+                <%= link_to  hairstyle_saved_hairstyle_path(saved_hairstyle), method: :post do %>
+                    <i class="fas fa-plus"></i>
+                 <% end %>
+                <!-- so if this hairstyle is not saved or someone unsaves make the plus sign look like the following and perform the function in the delete.js.erb file delete request -->
+              <% else %>
+                <%= link_to saved_hairstyle_path(hairstyle), method: :delete do %>
+                    <i class="fas fa-plus-circle"></i>
+                <% end %>
+              <% end %>
+            </div>
           </div>
          <!-- <div class="" style="margin: -40px 0 0 0">
           <%= link_to hairstyle.name, hairstyle_path(hairstyle) %>
@@ -55,10 +69,10 @@
               <% end %>
 
             <%= link_to dislike_hairstyle_path(hairstyle), method: :put do %>
-               <i class="fa fa-heart">
-                <span><%= hairstyle.get_downvotes.size %><span>
-               </i>
-            <% end %>
+              <i class="fa fa-heart">
+               <span><%= hairstyle.get_downvotes.size %><span>
+              </i>
+           <% end %>
 
 
             <i class="fas fa-share-alt"> </i>

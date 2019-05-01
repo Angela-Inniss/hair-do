@@ -1,5 +1,6 @@
 class HairstylesController < ApplicationController
    before_action :find_hairstyle, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     if params[:category].present?
       @hairstyles = policy_scope(Hairstyle).order(created_at: :desc)
