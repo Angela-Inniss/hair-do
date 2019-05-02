@@ -1,7 +1,9 @@
 class SavedHairstylesController < ApplicationController
   def create
     # 1. find the hairstyle i want to save
+    @raise
     @hairstyle = Hairstyle.find(params[:hairstyle_id])
+
     # 2. Create a new instance of saved hairstyle and find the id of the user (current user) &  hairstyle
     @saved_hairstyle = SavedHairstyle.new(user: current_user, hairstyle: @hairstyle)
     # 3. save  hairstyle
@@ -19,16 +21,18 @@ class SavedHairstylesController < ApplicationController
       end
     end
   end
-end
+
 
   def destroy
     # 1. I need to find the recipe I want to unsave
     @saved_hairstyle = SavedHairstyle.find(params[:id])
+    authorize @saved_hairstyle
     # 2. then destroy it
     @saved_hairstyle.destroy
     @hairstyle = @saved_hairstyle.hairstyle
     respond_to do |format|
-      format.html { redirect_to hairstyle_path(@saved_hairstyle.hairstyle }
+      format.html { redirect_to hairstyle_path(@saved_hairstyle.hairstyle)}
       format.js
     end
   end
+end
