@@ -2,7 +2,7 @@
 plusCircle = document.getElementById("bookmark");
 //link to the saved_hairstyle path and pass an instance of hairstle
 plusCircle.innerHTML = `<%= link_to hairstyle_saved_hairstyles_path(@hairstyle), method: :post, remote: true  do %>
-                    <i class="fa fa-heart"></i>
+                    <i class="far fa-bookmark"></i>
                  <% end %>`;
 
 
