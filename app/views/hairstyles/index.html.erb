@@ -41,18 +41,18 @@
             <h5 class="card-title" id="title" ><%= link_to hairstyle.name, hairstyle_path(hairstyle) %>
               <h6><%=hairstyle.location%></h6>
             </h5>
-             <div class="bookmark">
-      <% saved_hairstyle = SavedHairstyle.find_by(user: current_user, hairstyle: hairstyle.id) %>
-      <% if saved_hairstyle &&  policy(Saved_Haistyle).create?  %>
-        <%= link_to saved_hairstyle_path(saved_hairstyle), method: :delete do %>
-           <i class="fas fa-plus-circle"></i>
-         <% end %>
-       <% else %>
-          <%= link_to  hairstyle_saved_hairstyles_path(hairstyle), method: :post do %>
-            <i class="fas fa-plus"></i>
-          <% end %>
-        <% end %>
-    </div>
+            <div class="bookmark">
+              <% saved_hairstyle = SavedHairstyle.find_by(user: current_user, hairstyle: hairstyle.id) %>
+              <% if saved_hairstyle %>
+                <%= link_to saved_hairstyle_path(saved_hairstyle), method: :delete do %>
+                  <i class="fas fa-plus-circle">bookmarked</i>
+                <% end %>
+              <% else %>
+                <%= link_to hairstyle_saved_hairstyles_path(hairstyle), method: :post do %>
+                  <i class="fas fa-plus">unbookmarked</i>
+                <% end %>
+              <% end %>
+            </div>
           </div>
          <!-- <div class="" style="margin: -40px 0 0 0">
           <%= link_to hairstyle.name, hairstyle_path(hairstyle) %>
