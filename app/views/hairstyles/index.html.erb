@@ -5,28 +5,32 @@
       <% if @search != "" %>
         <%= link_to hairstyles_path(search: @search, category: 'Braids') do %>
           <button type="button" class="btn btn-light" id="filter-btn"> Braids </button>
+         <!--  <%= image_tag "https://res.cloudinary.com/dnsof9xnr/image/upload/v1556876995/braids3.jpg", class: "filter-icon" %> -->
         <% end %>
          <%= link_to hairstyles_path(search: @search, category: 'Relaxed') do %>
           <button type="button" class="btn btn-light" id="filter-btn"> Relaxed </button>
+         <!--  <%= image_tag "https://res.cloudinary.com/dnsof9xnr/image/upload/v1556878054/4e9be67d21abf30f8602764cde1a7c9b.jpg", class: "filter-icon" %> -->
         <% end %>
          <%= link_to hairstyles_path(search: @search, category: 'Weave') do %>
           <button type="button" class="btn btn-light" id="filter-btn"> Weave </button>
-        <% end %>
+         <!--  <%= image_tag "https://res.cloudinary.com/dnsof9xnr/image/upload/v1556877843/2b8c91936d32374c085f64f7f345ba58.jpg", class: "filter-icon" %>
+                 <% end %> -->
          <%= link_to hairstyles_path(search: @search, category: 'Natural') do %>
-          <button type="button" class="btn btn-light" id="filter-btn"> Natural</button>
+           <button type="button" class="btn btn-light" id="filter-btn"> Natural</button>
+         <!-- <%= image_tag "https://res.cloudinary.com/dnsof9xnr/image/upload/v1556878059/0db3bfae97b21e237dcbf6d239001022.jpg", class: "filter-icon" %> -->
         <% end %>
        <% end %>
     </div>
   </div>
 
- <div class="flex-box-search">
-  <div class="search-bar">
-    <%= form_tag(hairstyles_path, method: :get) do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search a hair-do", class: "search", class: "form-control" %>
-      </div>
-      <%= submit_tag "Search", class: "button-submit" %>
-      <% end %>
- </div>
+<!--  <div class="flex-box-search">
+ <div class="search-bar">
+   <%= form_tag(hairstyles_path, method: :get) do %>
+     <%= text_field_tag :search, params[:search], placeholder: "Search a hair-do", class: "search", class: "form-control" %>
+     </div>
+     <%= submit_tag "Search", class: "button-submit" %>
+     <% end %>
+</div> -->
 
 
 <div class="row justify-content-around p-3">
@@ -45,11 +49,13 @@
               <% saved_hairstyle = SavedHairstyle.find_by(user: current_user, hairstyle: hairstyle.id) %>
               <% if saved_hairstyle %>
                 <%= link_to saved_hairstyle_path(saved_hairstyle), method: :delete do %>
-                  <i class="fas fa-plus-circle">bookmarked</i>
+                <!--bookmarked-->
+                  <i class="fas fa-bookmark"></i>
                 <% end %>
               <% else %>
                 <%= link_to hairstyle_saved_hairstyles_path(hairstyle), method: :post do %>
-                  <i class="fas fa-plus">unbookmarked</i>
+                <!--un bookmarked-->
+                  <i class="far fa-bookmark"></i>
                 <% end %>
               <% end %>
             </div>
@@ -60,13 +66,15 @@
 
           <div class ="card-body-inner2 d-flex">
               <%= link_to like_hairstyle_path(hairstyle), method: :put do %>
-                 <i class="fa fa-heart">
+                 <!-- <i class="fa fa-heart"> -->
+                  <i class="fas fa-arrow-up"></i>
                   <span><%= hairstyle.get_upvotes.size %><span>
                  </i>
               <% end %>
 
             <%= link_to dislike_hairstyle_path(hairstyle), method: :put do %>
-              <i class="fa fa-heart">
+              <!-- <i class="fa fa-heart"> -->
+                <i class="fas fa-arrow-down"></i>
                <span><%= hairstyle.get_downvotes.size %><span>
               </i>
            <% end %>

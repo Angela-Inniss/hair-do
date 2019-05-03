@@ -48,6 +48,26 @@
   margin-top: 20px;
   text-align: right;
 }
+/*
+.filter-icon{
+  height: 50px;
+  width: 50px;
+  border-radius: 36px;
+} */
+
+button {
+    padding: 10px 15px;
+    box-shadow: 0 10px 0 rgba(0,0,0,0.1);
+    position: relative;
+    background-color:pink;
+    color:white;
+    border-radius: 10px;
+}
+
+.btn-light {
+  color:black !important;
+  background-color:darksalmon !important;;
+}
 
 .card-title {
     background-color: white;
@@ -65,16 +85,16 @@
 a {
     color: black !important;
     font-weight: bolder;
-}
+  }
 
-
-.fa-plus-circle {
+.fa-bookmark {
   position: absolute;
-  /* margin: 0 0 0 0; */
-  right: 4px;
-  bottom: 103px;
-  font-size: 33px;
+  margin: 0 0 0 0;
+  right: 16px;
+  top: 190px;
+  font-size: 28px;
 }
+
 
 #index-title {
 text-align:center;
