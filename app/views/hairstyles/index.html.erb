@@ -42,17 +42,14 @@
               <h6><%=hairstyle.location%></h6>
             </h5>
             <div class="bookmark">
-            <!-- declaring what a saved/bookmarked hairstyle is. A bookedmarkd hairstyle is made up of a current user and a hairstyle id(foreign keys)-->
               <% saved_hairstyle = SavedHairstyle.find_by(user: current_user, hairstyle: hairstyle.id) %>
-              <!-- so if this hairstyle is saved/book marked make the plus sign look like the following and perform the function in the create.js.erb file post request-->
               <% if saved_hairstyle %>
-                <%= link_to  hairstyle_saved_hairstyle_path(saved_hairstyle), method: :post do %>
-                    <i class="fas fa-plus"></i>
-                 <% end %>
-                <!-- so if this hairstyle is not saved or someone unsaves make the plus sign look like the following and perform the function in the delete.js.erb file delete request -->
+                <%= link_to saved_hairstyle_path(saved_hairstyle), method: :delete do %>
+                  <i class="fas fa-plus-circle">bookmarked</i>
+                <% end %>
               <% else %>
-                <%= link_to saved_hairstyle_path(hairstyle), method: :delete do %>
-                    <i class="fas fa-plus-circle"></i>
+                <%= link_to hairstyle_saved_hairstyles_path(hairstyle), method: :post do %>
+                  <i class="fas fa-plus">unbookmarked</i>
                 <% end %>
               <% end %>
             </div>

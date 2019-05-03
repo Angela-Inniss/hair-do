@@ -5,7 +5,11 @@ class SavedHairstylePolicy < ApplicationPolicy
     end
   end
 
-  def show?
+  def create?
+    return true
+  end
+
+  def destroy?
     return true
   end
 end
