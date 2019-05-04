@@ -45,7 +45,7 @@
             <h5 class="card-title" id="title" ><%= link_to hairstyle.name, hairstyle_path(hairstyle) %>
               <h6><%=hairstyle.location%></h6>
             </h5>
-            <div id="bookmark">
+             <div class="bookmark" id="<%= dom_id(hairstyle, :bookmark) %>">
               <% saved_hairstyle = SavedHairstyle.find_by(user: current_user, hairstyle: hairstyle.id) %>
               <% if saved_hairstyle %>
                 <%= link_to saved_hairstyle_path(saved_hairstyle), method: :delete, remote: true do %>
@@ -63,6 +63,8 @@
          <!-- <div class="" style="margin: -40px 0 0 0">
           <%= link_to hairstyle.name, hairstyle_path(hairstyle) %>
          </div> -->
+
+
 
           <div class ="card-body-inner2 d-flex">
               <%= link_to like_hairstyle_path(hairstyle), method: :put do %>
