@@ -25,7 +25,7 @@ include Pundit
 
   def destroy
     # 1. I need to find the recipe I want to unsave
-    @saved_hairstyle = SavedHairstyle.find(params[:id])
+    @saved_hairstyle = current_user.saved_hairstyles.find_by(hairstyle_id: params[:id])
     # 2. then destroy it
     @saved_hairstyle.destroy
     @hairstyle = @saved_hairstyle.hairstyle

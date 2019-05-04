@@ -1,10 +1,2 @@
-
-plusCircle = document.getElementById("bookmark");
-//link to the saved_hairstyle path and pass an instance of hairstle
-plusCircle.innerHTML = `<%= link_to  hairstyle_saved_hairstyles_path(@hairstyle), method: :delete, remote: do %>
-                    <i class="fas fa-bookmark"></i>
-                 <% end %>`;
-
-
-
-
+plusCircle = document.getElementById("bookmark_<%= @hairstyle.id %>");
+plusCircle.innerHTML = '<%= link_fa_to "bookmark", nil, saved_hairstyle_path(@hairstyle), true, { method: :delete, remote: true } %>';
